@@ -6,14 +6,17 @@ Home
 
 <h1>Posts</h1>
 <ul>
-{% for post in object_list %}
-<li>
-    <a href="{% url 'post_details' post.pk %}">{{ post.title }}</a> - {{ post.author }} - {{ post.author.first_name }}
-    <a href="{% url 'edit_post' post.pk %}">Edit</a> - 
-    <a href="{% url 'delete_post' post.pk %}">Delete</a> <br/>
-
-</li>   
-{% endfor %}
+    {% for post in object_list %}
+    <li>
+        <a href="{% url 'post_details' post.pk %}">{{ post.title }}</a> - {{ post.author }} -
+        {{ post.author.first_name }}
+        {% if user.is_authenticated %}
+        <a href="{% url 'edit_post' post.pk %}">Edit</a> -
+        <a href="{% url 'delete_post' post.pk %}">Delete</a> <br />
+        {% endif %}
+        {{ post.body|slice:'180'}}
+    </li>
+    {% endfor %}
 </ul>
 
 {% endblock %}
