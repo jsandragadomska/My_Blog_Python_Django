@@ -14,7 +14,7 @@ Home
         <a href="{% url 'edit_post' post.pk %}">Edit</a> -
         <a href="{% url 'delete_post' post.pk %}">Delete</a> <br />
         {% endif %}
-        {{ post.body|slice:'180'}}
+        {{ post.body|safe|slice:'180'}}
     </li>
     {% endfor %}
 </ul>
