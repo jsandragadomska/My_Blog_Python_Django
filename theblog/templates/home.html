@@ -8,13 +8,14 @@ Home
 <ul>
     {% for post in object_list %}
     <li>
-        <a href="{% url 'post_details' post.pk %}">{{ post.title }}</a> - {{ post.author }} -
-        {{ post.author.first_name }}
+        <a href="{% url 'post_details' post.pk %}">{{ post.title }}</a> -
+        {{ post.author.first_name }}<br />
+        <small>~{{ post.category }}~</small><br />
         {% if user.is_authenticated %}
         <a href="{% url 'edit_post' post.pk %}">Edit</a> -
         <a href="{% url 'delete_post' post.pk %}">Delete</a> <br />
         {% endif %}
-        {{ post.body|safe|slice:'180'}}
+        {{ post.body|safe|slice:':180'}}
     </li>
     {% endfor %}
 </ul>
