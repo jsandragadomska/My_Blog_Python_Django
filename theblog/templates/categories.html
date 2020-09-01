@@ -4,6 +4,8 @@ Categories
 {% endblock %}
 {% block content %}
 
+{% if category_posts %}
+
 <h1>{{cats}} Category</h1>
 <ul>
     {% for post in category_posts %}
@@ -18,4 +20,8 @@ Categories
     </li>
     {% endfor %}
 </ul>
+
+{% else %}
+Sorry, this category doesn't exist here
+{% endif %}
 {% endblock %}

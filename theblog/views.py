@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 #	return render(request, 'home.html', {})
 def CategoryView(request, cats):
 	category_posts = Post.objects.filter(category=cats)
-	return render(request, 'categories.html', {'cats':cats, 'category_posts':category_posts})
+	return render(request, 'categories.html', {'cats':cats.title(), 'category_posts':category_posts})
 
 class HomeView(ListView):
 	model = Post
