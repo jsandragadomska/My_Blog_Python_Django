@@ -12,5 +12,10 @@ Add Blog Post
         <button class="btn btn-outline-secondary"> POST </button>
     </form>
 </div>
+
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("user_id").value = name;
+</script>
 {% endif %}
 {% endblock %}
