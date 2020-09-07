@@ -47,6 +47,10 @@ class AddCategoryView(CreateView):
 	template_name = 'add_category.html'
 	fields = '__all__'
 
+# To do : create form to update category name
+#class UpdateCategoryView(UpdateView):
+#	model = Category
+
 class UpdatePostView(UpdateView):
 	model = Post
 	form_class = EditForm
