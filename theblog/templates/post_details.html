@@ -8,8 +8,7 @@
 
 ~{{ post.category }}~<br />
 <small>By: {{ post.author.first_name }} - {{post.post_date}}</small>
-<br />
-<br />
+<hr>
 {{ post.body|safe }}
 <br />
 <br />
@@ -19,5 +18,12 @@
 <a href="{% url 'delete_post' post.pk %}" class="btn btn-outline-danger">Delete</a>
 {% endif %}
 {% endif %}
+<br />
+<hr>
+<form action="{% url 'like_post' post.pk %}" method="POST">{% csrf_token %}
+    <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-outline-primary">Like</button> -
+    {{ total_likes }} Likes
+</form>
+<br />
 <a href="{% url 'home' %}" class="btn btn-outline-secondary">Back</a>
 {% endblock %}
