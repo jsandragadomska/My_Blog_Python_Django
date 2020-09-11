@@ -16,7 +16,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'home' %}">My Blog</a>
+        <a class="navbar-brand" href="{% url 'home' %}">The Awesome Place!</a>
         {% if user.is_authenticated %}
         <h1>Hello {{ user.first_name }} </h1>
         {% endif %}
