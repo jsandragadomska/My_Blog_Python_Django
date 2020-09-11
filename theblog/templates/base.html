@@ -65,12 +65,12 @@
                 {% endif %}
 
             </ul>
-            {% if user.is_authenticated %}
+        </div>
+        {% if user.is_authenticated %}
             <span class="navbar-text">
-               <h1>Hello {{ user.first_name }} </h1>
+               <a class="nav-link" href="{% url 'edit_profile' %}">Hello {{ user.first_name }} </a>
               </span>
             {% endif %}
-        </div>
     </nav>
     <br />
     <div class="container">
