@@ -11,24 +11,26 @@ for item in choices:
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'author', 'category', 'body')
+        fields = ('title', 'author', 'category', 'snippet', 'body')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Input your title here'}),
             'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'user_id', 'type': 'hidden'}),
             #'author': forms.Select(attrs={'class': 'form-control'}),
             'category': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
+            'snippet': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Input your snippet here'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
 class EditForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'category', 'body')
+        fields = ('title', 'category', 'snippet', 'body')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
+            'snippet': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Input your snippet here'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
         }
 

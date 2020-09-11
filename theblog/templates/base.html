@@ -17,9 +17,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'home' %}">The Awesome Place!</a>
-        {% if user.is_authenticated %}
-        <h1>Hello {{ user.first_name }} </h1>
-        {% endif %}
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -67,6 +65,11 @@
                 {% endif %}
 
             </ul>
+            {% if user.is_authenticated %}
+            <span class="navbar-text">
+               <h1>Hello {{ user.first_name }} </h1>
+              </span>
+            {% endif %}
         </div>
     </nav>
     <br />

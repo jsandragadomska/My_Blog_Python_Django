@@ -18,7 +18,7 @@ class Post(models.Model):
     title_tag = models.CharField(max_length=225, default="Blogpost")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = RichTextField(blank=True, null=True)
-    #body = models.TextField()
+    snippet = models.CharField(max_length=225)
     post_date = models.DateField(auto_now_add=True, blank=True)
     category = models.CharField(max_length=225, default='None')
     likes = models.ManyToManyField(User, related_name='blog_posts')

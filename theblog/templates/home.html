@@ -5,19 +5,22 @@ Home
 {% block content %}
 
 <h1>Posts</h1>
-<ul>
+<ul class="list-group list-group-flush">
     {% for post in object_list %}
-    <li>
+    <li class="list-group-item">
         <a href="{% url 'post_details' post.pk %}">{{ post.title }}</a>
-        <small>by: {{ post.author.first_name }}</small> <br />
-        <a href="{% url 'category' post.category|slugify %}">~{{ post.category }}~</a><br />
+        <small>by: {{ post.author.first_name }} - 
+        <a href="{% url 'category' post.category|slugify %}"> {{ post.category }} </a></small>
+        <br />
+        {{ post.snippet }}
+        <br />
+        <br />
         {% if user.is_authenticated %}
         {% if user.id == post.author.id %}
         <a href="{% url 'edit_post' post.pk %}">Edit</a> -
         <a href="{% url 'delete_post' post.pk %}">Delete</a> <br />
         {% endif %}
         {% endif %}
-        {{ post.body|safe|slice:':180'}}
     </li>
     {% endfor %}
 </ul>
