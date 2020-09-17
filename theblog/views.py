@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Category
+from .models import Post, Category, Profile
 from .forms import PostForm, EditForm
 from django.urls import reverse_lazy, reverse
 
@@ -92,3 +92,11 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
+
+class ProfileView(DetailView):
+    model = Profile
+    template_name = 'profile_page.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProfileView, self).get_context_data(*args, **kwargs)
+        return context

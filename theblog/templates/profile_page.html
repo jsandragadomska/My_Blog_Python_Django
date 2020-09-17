@@ -4,8 +4,13 @@
 {% endblock %}
 {% block content %}
 
-<h1>{{ user.first_name }}</h1>
+<h1>{{ user.first_name }} {{ user.last_name }}</h1>
+<br />
 
+<img src="{{ user.profile.profile_pic.url }}">
+<br />
+<br />
+{{ user.profile.bio }}<br />
 {{ user.profile.website_url }}
 <br />
 <br />
