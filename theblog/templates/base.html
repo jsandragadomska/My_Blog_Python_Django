@@ -71,7 +71,7 @@
         </div>
         {% if user.is_authenticated %}
             <span class="navbar-text">
-               <a class="nav-link" href="{% url 'profile_page' user.profile.pk %}">Hello {{ user.first_name }} </a>
+               <a class="nav-link" href="{% url 'show_profile_page' user.profile.id %}">Hello {{ user.first_name }} </a>
               </span>
             {% endif %}
     </nav>

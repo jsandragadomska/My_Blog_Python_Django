@@ -93,10 +93,3 @@ class DeletePostView(DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
 
-class ProfileView(DetailView):
-    model = Profile
-    template_name = 'profile_page.html'
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(ProfileView, self).get_context_data(*args, **kwargs)
-        return context
