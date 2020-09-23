@@ -19,7 +19,6 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }} ({{ page_user }})</h5>
-          <a href="{% url 'show_profile_page' page_user.id %}">Profile Page</a>
           <p class="card-text">{{ page_user.bio }}</p>
           <p class="card-text"><small>
               {% if page_user.website_url %}
