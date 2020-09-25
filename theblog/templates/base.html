@@ -60,14 +60,18 @@
             <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20"></button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                {% if user.profile.id %}
                 <a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Profile Page</a>
                 <a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id%}">Edit Profile</a>
+                {% else %}
+                <a class="dropdown-item" href="{% url 'create_profile_page' %}">Create Profile</a>
+                {% endif %}
                 <a class="dropdown-item" href="{% url 'edit_profile' %}">Settings</a>
                 <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
             </div>
         </div>
         <span class="navbar-text">
-            <a class="nav-link" href="{% url 'show_profile_page' user.profile.id %}">Hello {{ user.first_name }} </a>
+            <a class="nav-link" href="{% url 'home' %}">Hello {{ user.first_name }} </a>
         </span>
         {% else %}
         <div class="dropdown mr-1">
