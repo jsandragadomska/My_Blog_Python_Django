@@ -4,6 +4,8 @@ from django.urls import reverse
 from datetime import datetime, date
 from ckeditor.fields import RichTextField
 
+# To add new model to theBlog you need to register it in admin section!!
+
 class Category(models.Model):
     name = models.CharField(max_length=225, default='None')
 

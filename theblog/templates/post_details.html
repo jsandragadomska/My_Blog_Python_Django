@@ -35,8 +35,18 @@
   {% endif %}
   - {{ total_likes }} Likes
 </form>
+<h2>Comments...</h2><br />
+{% if not post.comments.all %}
+No Comments Yet
+{% else %}
+{% for comment in post.comments.all %}
+<strong>{{comment.name}}</strong> <br />
+<small>{{comment.comment_date}}</small><br />
+{{comment.body}}
+{% endfor %}
+{% endif %}
 <br />
-
+<br />
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
