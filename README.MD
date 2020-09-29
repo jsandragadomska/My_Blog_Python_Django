@@ -7,7 +7,7 @@ Use the package manager to erun server with this app
 python manage.py runserver
 ```
 
-##User Story
+## User Story
 - create new account
 - create new profile
 - logging in
